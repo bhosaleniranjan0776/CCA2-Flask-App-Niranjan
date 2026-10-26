@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cca2-flask-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cca2-flask
+  template:
+    metadata:
+      labels:
+        app: cca2-flask
+    spec:
+      containers:
+        - name: cca2-flask-container
+          image: sahilbhosale04032006/cca2-flask-app:latest
+          ports:
+            - containerPort: 5000
